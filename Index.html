@@ -1,165 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpinWash | Laundry Management Dashboard</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Chart.js for Analytics -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans antialiased">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans antialiased transition-colors duration-200">
 
     <div class="flex h-screen overflow-hidden">
         
-        <!-- SIDEBAR -->
-        <aside class="w-64 bg-gray-800 border-r border-gray-700 flex flex-col justify-between hidden md:flex">
+        <aside class="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col justify-between hidden md:flex transition-colors duration-200">
             <div>
-                <!-- Logo -->
-                <div class="p-6 flex items-center gap-3 border-b border-gray-700">
-                    <i class="fa-solid fa-soap text-indigo-400 text-2xl animate-pulse"></i>
-                    <span class="text-xl font-bold tracking-wider text-white">SpinWash Pro</span>
+                <div class="p-6 flex items-center gap-3 border-b border-gray-200 dark:border-gray-700">
+                    <i class="fa-solid fa-soap text-indigo-500 dark:text-indigo-400 text-2xl animate-pulse"></i>
+                    <span class="text-xl font-bold tracking-wider text-gray-900 dark:text-white">SpinWash Pro</span>
                 </div>
-                <!-- Navigation Links -->
                 <nav class="p-4 space-y-2">
                     <a href="#" class="flex items-center gap-3 px-4 py-3 bg-indigo-600 text-white rounded-xl transition-all duration-200">
                         <i class="fa-solid fa-chart-pie w-5"></i> Dashboard
                     </a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition-all duration-200">
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white rounded-xl transition-all duration-200">
                         <i class="fa-solid fa-spinner w-5"></i> Active Orders
                     </a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition-all duration-200">
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white rounded-xl transition-all duration-200">
                         <i class="fa-solid fa-users w-5"></i> Customers
                     </a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition-all duration-200">
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white rounded-xl transition-all duration-200">
                         <i class="fa-solid fa-jug-detergent w-5"></i> Machines & Inventory
                     </a>
-                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-gray-700 hover:text-white rounded-xl transition-all duration-200">
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white rounded-xl transition-all duration-200">
                         <i class="fa-solid fa-wallet w-5"></i> Finances
                     </a>
                 </nav>
             </div>
-            <!-- Sidebar Footer -->
-            <div class="p-4 border-t border-gray-700">
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700">
                 <div class="flex items-center gap-3 p-2">
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Admin" class="w-10 h-10 rounded-full border-2 border-indigo-500">
                     <div>
-                        <p class="text-sm font-semibold text-white">Alvin Macahis</p>
-                        <p class="text-xs text-gray-400">Manager</p>
+                        <p class="text-sm font-semibold text-gray-900 dark:text-white">Alvin Macahis</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">Manager</p>
                     </div>
                 </div>
             </div>
         </aside>
 
-        <!-- MAIN CONTENT AREA -->
-        <main class="flex-1 flex flex-col overflow-y-auto bg-gray-900">
+        <main class="flex-1 flex flex-col overflow-y-auto bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
             
-            <!-- TOP NAVBAR -->
-            <header class="bg-gray-800 border-b border-gray-700 px-6 py-4 flex justify-between items-center sticky top-0 z-10">
+            <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex justify-between items-center sticky top-0 z-10 transition-colors duration-200">
                 <div class="flex items-center gap-4">
-                    <button class="md:hidden text-gray-400 hover:text-white">
+                    <button class="md:hidden text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
-                    <h1 class="text-xl font-bold text-white hidden sm:block">Welcome back, Sarah!</h1>
+                    <h1 class="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">Welcome back, Sarah!</h1>
                 </div>
-                <!-- Action Buttons -->
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-5">
+                    
+                    <button id="themeToggle" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-lg p-2 rounded-xl bg-gray-100 dark:bg-gray-700/50 cursor-pointer transition-all">
+                        <i id="themeToggleIcon" class="fa-solid fa-moon"></i>
+                    </button>
+
                     <button class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl font-medium flex items-center gap-2 shadow-lg transition-all duration-200 cursor-pointer">
                         <i class="fa-solid fa-plus"></i> New Order
                     </button>
                     <div class="relative">
-                        <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full ring-2 ring-gray-800"></span>
-                        <i class="fa-solid fa-bell text-gray-400 hover:text-white text-xl cursor-pointer"></i>
+                        <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+                        <i class="fa-solid fa-bell text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-xl cursor-pointer"></i>
                     </div>
                 </div>
             </header>
 
-            <!-- DASHBOARD CONTENT -->
             <div class="p-6 space-y-6">
 
-                <!-- FOUR METRIC CARDS -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Card 1 -->
-                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 flex items-center justify-between shadow-sm">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 flex items-center justify-between shadow-xs transition-colors duration-200">
                         <div class="space-y-2">
-                            <p class="text-sm font-medium text-gray-400 uppercase tracking-wider">Active Orders</p>
-                            <h3 class="text-3xl font-bold text-white">42</h3>
-                            <span class="text-xs text-emerald-400 font-medium"><i class="fa-solid fa-arrow-up"></i> +12% from yesterday</span>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Active Orders</p>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white">42</h3>
+                            <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium"><i class="fa-solid fa-arrow-up"></i> +12% from yesterday</span>
                         </div>
-                        <div class="p-4 bg-indigo-500/10 text-indigo-400 rounded-xl">
+                        <div class="p-4 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-xl">
                             <i class="fa-solid fa-spinner text-2xl animate-spin-slow"></i>
                         </div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 flex items-center justify-between shadow-sm">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 flex items-center justify-between shadow-xs transition-colors duration-200">
                         <div class="space-y-2">
-                            <p class="text-sm font-medium text-gray-400 uppercase tracking-wider">Ready for Pickup</p>
-                            <h3 class="text-3xl font-bold text-emerald-400">18</h3>
-                            <span class="text-xs text-gray-400 font-medium">Awaiting customer notification</span>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Ready for Pickup</p>
+                            <h3 class="text-3xl font-bold text-emerald-600 dark:text-emerald-400">18</h3>
+                            <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Awaiting customer notification</span>
                         </div>
-                        <div class="p-4 bg-emerald-500/10 text-emerald-400 rounded-xl">
+                        <div class="p-4 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-xl">
                             <i class="fa-solid fa-circle-check text-2xl"></i>
                         </div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 flex items-center justify-between shadow-sm">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 flex items-center justify-between shadow-xs transition-colors duration-200">
                         <div class="space-y-2">
-                            <p class="text-sm font-medium text-gray-400 uppercase tracking-wider">Today's Revenue</p>
-                            <h3 class="text-3xl font-bold text-white">$1,245.50</h3>
-                            <span class="text-xs text-emerald-400 font-medium"><i class="fa-solid fa-arrow-up"></i> +8.4% target</span>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Today's Revenue</p>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white">$1,245.50</h3>
+                            <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium"><i class="fa-solid fa-arrow-up"></i> +8.4% target</span>
                         </div>
-                        <div class="p-4 bg-amber-500/10 text-amber-400 rounded-xl">
+                        <div class="p-4 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-xl">
                             <i class="fa-solid fa-dollar-sign text-2xl"></i>
                         </div>
                     </div>
-                    <!-- Card 4 -->
-                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 flex items-center justify-between shadow-sm">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 flex items-center justify-between shadow-xs transition-colors duration-200">
                         <div class="space-y-2">
-                            <p class="text-sm font-medium text-gray-400 uppercase tracking-wider">Available Washers</p>
-                            <h3 class="text-3xl font-bold text-white">9 <span class="text-lg font-normal text-gray-500">/ 12</span></h3>
-                            <span class="text-xs text-rose-400 font-medium">3 currently in maintenance</span>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Available Washers</p>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white">9 <span class="text-lg font-normal text-gray-400 dark:text-gray-500">/ 12</span></h3>
+                            <span class="text-xs text-rose-600 dark:text-rose-400 font-medium">3 currently in maintenance</span>
                         </div>
-                        <div class="p-4 bg-purple-500/10 text-purple-400 rounded-xl">
+                        <div class="p-4 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-xl">
                             <i class="fa-solid fa-hard-drive text-2xl"></i>
                         </div>
                     </div>
                 </div>
 
-                <!-- ANALYTICS SECTION (CHARTS) -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Main Revenue Chart -->
-                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 lg:col-span-2">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 lg:col-span-2 transition-colors duration-200">
                         <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-bold text-white">Weekly Performance</h3>
-                            <span class="text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Last 7 Days</span>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Weekly Performance</h3>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-full">Last 7 Days</span>
                         </div>
                         <div class="h-64">
                             <canvas id="revenueChart"></canvas>
                         </div>
                     </div>
-                    <!-- Breakdown Donut Chart -->
-                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700">
-                        <h3 class="text-lg font-bold text-white mb-4">Service Breakdown</h3>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 transition-colors duration-200">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Service Breakdown</h3>
                         <div class="h-64 flex justify-center items-center">
                             <canvas id="serviceChart"></canvas>
                         </div>
                     </div>
                 </div>
 
-                <!-- LIVE MONITORING & ORDERS TABLES -->
                 <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
-                    <!-- Active Orders Table -->
-                    <div class="bg-gray-800 rounded-2xl border border-gray-700 xl:col-span-2 overflow-hidden">
-                        <div class="p-6 border-b border-gray-700 flex justify-between items-center">
-                            <h3 class="text-lg font-bold text-white">Recent Live Orders</h3>
-                            <button class="text-sm text-indigo-400 hover:underline">View All</button>
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 xl:col-span-2 overflow-hidden transition-colors duration-200">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Recent Live Orders</h3>
+                            <button class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline">View All</button>
                         </div>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-sm">
-                                <thead class="bg-gray-700/50 text-gray-400 uppercase text-xs tracking-wider">
+                                <thead class="bg-gray-50 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">
                                     <tr>
                                         <th class="px-6 py-3">Order ID</th>
                                         <th class="px-6 py-3">Customer</th>
@@ -168,32 +152,32 @@
                                         <th class="px-6 py-3">Status</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-700">
-                                    <tr class="hover:bg-gray-700/30 transition-colors">
-                                        <td class="px-6 py-4 font-mono text-indigo-400">#ORD-9482</td>
-                                        <td class="px-6 py-4 font-medium text-white">Marcus Vance</td>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+                                        <td class="px-6 py-4 font-mono text-indigo-600 dark:text-indigo-400">#ORD-9482</td>
+                                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Marcus Vance</td>
                                         <td class="px-6 py-4">Wash & Fold</td>
                                         <td class="px-6 py-4">8.5 kg</td>
                                         <td class="px-6 py-4">
-                                            <span class="px-2.5 py-1 text-xs font-semibold bg-blue-500/10 text-blue-400 rounded-full">Washing</span>
+                                            <span class="px-2.5 py-1 text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full">Washing</span>
                                         </td>
                                     </tr>
-                                    <tr class="hover:bg-gray-700/30 transition-colors">
-                                        <td class="px-6 py-4 font-mono text-indigo-400">#ORD-9481</td>
-                                        <td class="px-6 py-4 font-medium text-white">Elena Rostova</td>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+                                        <td class="px-6 py-4 font-mono text-indigo-600 dark:text-indigo-400">#ORD-9481</td>
+                                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">Elena Rostova</td>
                                         <td class="px-6 py-4">Dry Cleaning</td>
                                         <td class="px-6 py-4">3 Items</td>
                                         <td class="px-6 py-4">
-                                            <span class="px-2.5 py-1 text-xs font-semibold bg-amber-500/10 text-amber-400 rounded-full">Drying</span>
+                                            <span class="px-2.5 py-1 text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full">Drying</span>
                                         </td>
                                     </tr>
-                                    <tr class="hover:bg-gray-700/30 transition-colors">
-                                        <td class="px-6 py-4 font-mono text-indigo-400">#ORD-9480</td>
-                                        <td class="px-6 py-4 font-medium text-white">James McAvoy</td>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+                                        <td class="px-6 py-4 font-mono text-indigo-600 dark:text-indigo-400">#ORD-9480</td>
+                                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">James McAvoy</td>
                                         <td class="px-6 py-4">Express Wash</td>
                                         <td class="px-6 py-4">5.0 kg</td>
                                         <td class="px-6 py-4">
-                                            <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-500/10 text-emerald-400 rounded-full">Ready</span>
+                                            <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full">Ready</span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -201,47 +185,43 @@
                         </div>
                     </div>
 
-                    <!-- Machine Status Trackers -->
-                    <div class="bg-gray-800 p-6 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 flex flex-col justify-between transition-colors duration-200">
                         <div>
-                            <h3 class="text-lg font-bold text-white mb-4">Machine Smart-Monitor</h3>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Machine Smart-Monitor</h3>
                             <div class="space-y-4">
-                                <!-- Machine 1 -->
-                                <div class="flex items-center justify-between p-3 bg-gray-700/30 rounded-xl border border-gray-700">
+                                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700/30 rounded-xl border border-gray-200 dark:border-gray-700">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping"></div>
                                         <div>
-                                            <h4 class="text-sm font-semibold text-white">Washer #01 (Heavy Load)</h4>
-                                            <p class="text-xs text-gray-400">Cycle: Cotton Eco</p>
+                                            <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Washer #01 (Heavy Load)</h4>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400">Cycle: Cotton Eco</p>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-mono bg-blue-500/10 text-blue-400 px-2 py-1 rounded">14 min left</span>
+                                    <span class="text-xs font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-1 rounded">14 min left</span>
                                 </div>
-                                <!-- Machine 2 -->
-                                <div class="flex items-center justify-between p-3 bg-gray-700/30 rounded-xl border border-gray-700">
+                                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700/30 rounded-xl border border-gray-200 dark:border-gray-700">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></div>
                                         <div>
-                                            <h4 class="text-sm font-semibold text-white">Dryer #03 (High Heat)</h4>
-                                            <p class="text-xs text-gray-400">Cycle: Bedding</p>
+                                            <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Dryer #03 (High Heat)</h4>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400">Cycle: Bedding</p>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-mono bg-amber-500/10 text-amber-400 px-2 py-1 rounded">32 min left</span>
+                                    <span class="text-xs font-mono bg-amber-500/10 text-amber-600 dark:text-amber-400 px-2 py-1 rounded">32 min left</span>
                                 </div>
-                                <!-- Machine 3 -->
-                                <div class="flex items-center justify-between p-3 bg-gray-700/30 rounded-xl border border-gray-700">
+                                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700/30 rounded-xl border border-gray-200 dark:border-gray-700">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
                                         <div>
-                                            <h4 class="text-sm font-semibold text-white">Washer #02 (Standard)</h4>
-                                            <p class="text-xs text-emerald-400">Idle / Available</p>
+                                            <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Washer #02 (Standard)</h4>
+                                            <p class="text-xs text-emerald-600 dark:text-emerald-400">Idle / Available</p>
                                         </div>
                                     </div>
-                                    <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded">Ready</span>
+                                    <span class="text-xs font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-1 rounded">Ready</span>
                                 </div>
                             </div>
                         </div>
-                        <button class="mt-4 w-full bg-gray-700 hover:bg-gray-600 text-white text-sm font-medium py-2.5 rounded-xl transition-all duration-200">
+                        <button class="mt-4 w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-white text-sm font-medium py-2.5 rounded-xl transition-all duration-200">
                             Manage All Hardware
                         </button>
                     </div>
@@ -251,11 +231,68 @@
         </main>
     </div>
 
-    <!-- INLINE CHART SCRIPTING -->
     <script>
+        // --- LIGHT / DARK MODE TOGGLE ENGINE ---
+        const htmlElement = document.documentElement;
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeToggleIcon = document.getElementById('themeToggleIcon');
+
+        // Chart instances holder for updates
+        let revenueChart, serviceChart;
+
+        // Theme configuration parameters for Chart.js matching Tailwind shades
+        const chartThemes = {
+            dark: { gridColor: 'rgba(75, 85, 99, 0.2)', textColor: '#9ca3af' },
+            light: { gridColor: 'rgba(229, 231, 235, 0.8)', textColor: '#4b5563' }
+        };
+
+        function updateChartThemes(mode) {
+            const config = chartThemes[mode];
+            if (revenueChart && serviceChart) {
+                // Update Revenue Chart options
+                revenueChart.options.plugins.legend.labels.color = config.textColor;
+                revenueChart.options.scales.x.ticks.color = config.textColor;
+                revenueChart.options.scales.y.ticks.color = config.textColor;
+                revenueChart.options.scales.y.grid.color = config.gridColor;
+                revenueChart.update();
+
+                // Update Service Breakdown options
+                serviceChart.options.plugins.legend.labels.color = config.textColor;
+                serviceChart.update();
+            }
+        }
+
+        function setTheme(mode) {
+            if (mode === 'dark') {
+                htmlElement.classList.add('dark');
+                themeToggleIcon.className = 'fa-solid fa-sun text-amber-400';
+                localStorage.setItem('theme', 'dark');
+                updateChartThemes('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+                themeToggleIcon.className = 'fa-solid fa-moon text-gray-600';
+                localStorage.setItem('theme', 'light');
+                updateChartThemes('light');
+            }
+        }
+
+        // Initialize state on load
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setTheme(savedTheme);
+
+        // Toggle Event
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = htmlElement.classList.contains('dark');
+            setTheme(isDark ? 'light' : 'dark');
+        });
+
+
+        // --- CHART JS SETUP ---
+        const initialMode = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+
         // Line Chart Configuration (Weekly Performance)
         const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
-        new Chart(ctxRevenue, {
+        revenueChart = new Chart(ctxRevenue, {
             type: 'line',
             data: {
                 labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -281,18 +318,18 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { labels: { color: '#9ca3af', font: { family: 'sans-serif' } } }
+                    legend: { labels: { color: chartThemes[initialMode].textColor, font: { family: 'sans-serif' } } }
                 },
                 scales: {
-                    x: { grid: { display: false }, ticks: { color: '#9ca3af' } },
-                    y: { grid: { color: 'rgba(75, 85, 99, 0.2)' }, ticks: { color: '#9ca3af' } }
+                    x: { grid: { display: false }, ticks: { color: chartThemes[initialMode].textColor } },
+                    y: { grid: { color: chartThemes[initialMode].gridColor }, ticks: { color: chartThemes[initialMode].textColor } }
                 }
             }
         });
 
         // Donut Chart Configuration (Service Breakdown)
         const ctxService = document.getElementById('serviceChart').getContext('2d');
-        new Chart(ctxService, {
+        serviceChart = new Chart(ctxService, {
             type: 'doughnut',
             data: {
                 labels: ['Wash & Fold', 'Dry Clean', 'Ironing Only', 'Express'],
@@ -308,7 +345,7 @@
                 plugins: {
                     legend: { 
                         position: 'bottom',
-                        labels: { color: '#9ca3af', boxWidth: 12, padding: 15 } 
+                        labels: { color: chartThemes[initialMode].textColor, boxWidth: 12, padding: 15 } 
                     }
                 },
                 cutout: '70%'
